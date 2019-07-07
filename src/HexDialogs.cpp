@@ -1195,7 +1195,7 @@ void FindDialog::OnFindAll( bool internal ){
 		if( !internal ){
 			//this->Hide(); //This make assertion when issued EndModal!
 			OSXwxMessageBox(wxString::Format(_("Found %d matches."), static_cast<int>( parent->HighlightArray.GetCount()) ), _("Find All Done!"), wxOK, parent );
-			EndModal(0);
+			//EndModal(0);
 			//this->Show();
 			}
 		}
@@ -1770,7 +1770,7 @@ void ReplaceDialog::OnReplaceAll( void ){
 
 			wxMemoryBuffer search_binary = wxHexCtrl::HexToBin( m_comboBoxReplace->GetValue());
 			parent->FileAddDiff( parent->HighlightArray.Item(i)->start,
-										static_cast<char*>(search_binary.GetData()),
+										static_cast<const char*>(search_binary.GetData()),
 										search_binary.GetDataLen() );
 			}
 
@@ -1784,8 +1784,9 @@ void ReplaceDialog::OnReplaceAll( void ){
 		this->Hide();
 		wxUpdateUIEvent eventx( UNREDO_EVENT );
 		wxPostEvent( parent, eventx);
-		OSXwxMessageBox(wxString::Format(_("%d records changed."), parent->HighlightArray.Count() ), _("Info"), wxOK, parent);
-		EndModal(0);
+
+			OSXwxMessageBox(wxString::Format(_("%d records changed."), static_cast<int>( parent->HighlightArray.Count()) ), _("Info"), wxOK, parent);
+			//EndModal(0);
 		}
 	}
 

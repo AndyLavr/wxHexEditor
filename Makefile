@@ -2,8 +2,8 @@ WXCONFIG ?= wx-config
 HOST=
 WXCXXFLAGS= `$(WXCONFIG) --cxxflags` -Iudis86 -Imhash/include -MMD -Wall -O2
 WXLDFLAGS = `$(WXCONFIG) --libs` `$(WXCONFIG) --libs aui` `$(WXCONFIG) --libs core`
-WXCXXFLAGS += -fopenmp
-LDFLAGS += -lgomp
+#WXCXXFLAGS += -fopenmp
+#LDFLAGS += -lgomp
 #add this ldflags for WinConsole  "-Wl,--subsystem,console -mconsole" for win-debug
 #LDFLAGS += -Wl,--subsystem,console -mconsole
 RC = `$(WXCONFIG) --rescomp`
@@ -38,7 +38,7 @@ BINDIR      = $(PREFIX)/bin
 DATADIR     = $(PREFIX)/share
 LOCALEDIR   = $(DATADIR)/locale
 
-VERSION = 0.25 Beta
+VERSION = 0.25 Dragon
 
 .DEFAULT_GOAL := all
 

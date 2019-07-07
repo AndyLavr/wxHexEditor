@@ -35,7 +35,7 @@
 
 #ifndef _VERSION_
 #define _VERSION_ "0.25"
-#define _VERSION_S_ _VERSION_ " Beta Development"
+#define _VERSION_S_ _VERSION_ " Dragon"
 #endif // _VERSION_
 
 #ifdef __WXMSW__
